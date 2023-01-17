@@ -1,0 +1,20 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    # https://pre-commit.com/hooks.html
+    hooks:
+    -   id: check-ast
+    -   id: check-merge-conflict
+    -   id: end-of-file-fixer
+    -   id: check-added-large-files
+        args: ['--maxkb=15000']
+
+-   repo: local
+    hooks:
+    -   id: all
+        name: Local Checks
+        entry: make
+        args: ["all"]
+        language: system

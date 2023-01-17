@@ -10,17 +10,24 @@ class BackgroundEstimation:
         self.frame_fraction = frame_fraction
         self.frame_fraction_num = int(self.num_frames * self.frame_fraction)
 
-    def _mean_image(self, selected_frames):
+    def _mean_estimate(self, selected_frames):
+        '''
+        Given selected frames, estimate mean value for each pixels and return the resulting image
+        '''
         mean_frame = np.mean(selected_frames, axis=0).astype(dtype=np.uint8)
         return mean_frame
 
-    def _median_image(self, selected_frames):
+    def _median_estimate(self, selected_frames):
+        '''
+        Given selected frames, estimate median value for each pixels and return the resulting image
+        '''
         median_frame = np.median(selected_frames, axis=0).astype(dtype=np.uint8)
         return median_frame
     
     def _select_frames(self):
-        
-        # Randomly select n frames
+        '''
+        For the provided video select and return n number of frames based on frame_fraction_num 
+        '''
         frame_ids = self.num_frames * np.random.uniform(size = self.frame_fraction_num)
 
         # Store selected frames in an array
@@ -33,17 +40,22 @@ class BackgroundEstimation:
         return selected_frames
     
     def _cleanup(self):
+        '''
+        Release video reader
+        '''
         self.cap.release()
 
     def get_background(self, method:str = "median"):
-
+        '''
+        Given the background estimation method select frames and return the background image 
+        '''
         selected_frames = self._select_frames()
 
         if method == "mean":
-            result_image = self._mean_image(selected_frames)
+            result_image = self._mean_estimate(selected_frames)
 
         elif method == "median":
-            result_image = self._mean_image(selected_frames)
+            result_image = self._median_estimate(selected_frames)
 
         else:
 

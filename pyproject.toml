@@ -50,6 +50,16 @@ exclude = '''
 )/
 '''
 
+[tool.pytest.ini_options]
+addopts = "-ra -q"
+testpaths = [
+    "tests"
+]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 80
+
 [tool.poetry_bumpversion.file."video-background-estimation/__init__.py"]
 
 [project.urls]
