@@ -9,7 +9,7 @@ class BackgroundEstimation:
         self.num_frames = self.cap.get(cv2.CAP_PROP_FRAME_COUNT)
         self.frame_fraction = frame_fraction
         self.frame_fraction_num = int(self.num_frames * self.frame_fraction)
-
+    
     def _mean_image(self, selected_frames):
         mean_frame = np.mean(selected_frames, axis=0).astype(dtype=np.uint8)
         return mean_frame
@@ -32,6 +32,9 @@ class BackgroundEstimation:
 
         return selected_frames
     
+    def _cleanup(self):
+        self.cap.release()
+
     def get_background(self, method:str = "median"):
 
         selected_frames = self._select_frames()
@@ -49,7 +52,4 @@ class BackgroundEstimation:
         self._cleanup()
 
         return result_image
-
-    def _cleanup(self):
-        self.cap.release()
 
