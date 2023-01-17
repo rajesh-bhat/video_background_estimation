@@ -2,10 +2,12 @@
 name = "video-background-estimation"
 version = "0.1.1"
 description = "background estimation based on simple techniques"
-authors = [ { name="Rajesh Shreedhar Bhat", email="rajeshbht19@gmail.com"}, ]
+authors = [ "Rajesh Shreedhar Bhat, rajeshbht19@gmail.com" ]
 license = "MIT"
 readme = "README.md"
 packages = [{include = "video_background_estimation"}]
+repository = "https://github.com/rajesh-bhat/video_background_estimation"
+keywords = ["video background estimation", "background extraction from video"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -38,6 +40,5 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry_bumpversion.file."video-background-estimation/__init__.py"]
 
 [project.urls]
-"Repository" = "https://github.com/rajesh-bhat/video_background_estimation"
 "Issue Tracker" = "https://github.com/rajesh-bhat/video_background_estimation/issues"
 
