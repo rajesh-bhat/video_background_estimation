@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "video-background-estimation"
-version = "0.1.1"
+version = "0.1.2"
 description = "background estimation based on simple techniques"
-authors = [ "Rajesh Shreedhar Bhat, rajeshbht19@gmail.com" ]
+authors = [ "Rajesh Shreedhar Bhat <rajeshbht19@gmail.com>", ]
 license = "MIT"
 readme = "README.md"
 packages = [{include = "video_background_estimation"}]
