@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "video-background-estimation"
-version = "0.1.2"
+version = "0.1.1"
 description = "background estimation based on simple techniques"
 authors = [ "Rajesh Shreedhar Bhat <rajeshbht19@gmail.com>", ]
 license = "MIT"
@@ -23,22 +23,40 @@ pytest = "^7.2.1"
 isort = "^5.11.4"
 pre-commit = "^2.21.0"
 poetry-bumpversion = "^0.3.0"
+flake8 = "5.0.4"
 
 
 [tool.isort]
-profile = "black"
-force_single_line = false
-multi_line_output = 3  # hanging vertical indent
-include_trailing_comma = true
-use_parentheses = true
-line_length = 200
+# more configs here: https://pycqa.github.io/isort/docs/configuration/options.html
+skip = [".gitignore"]
+force_single_line = false #Forces all from imports to appear on their own line
+line_length = 150  # The max length of an import line (used for wrapping long imports) 
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.black]
+line-length = 120
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | tests/.*/setup.py
+)/
+'''
 
 [tool.poetry_bumpversion.file."video-background-estimation/__init__.py"]
 
 [project.urls]
 "Issue Tracker" = "https://github.com/rajesh-bhat/video_background_estimation/issues"
+
+[build-system]                                                                                                                                          
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
 
