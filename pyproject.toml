@@ -10,10 +10,10 @@ packages = [{include = "video_background_estimation"}]
 [tool.poetry.dependencies]
 python = "^3.8"
 opencv-python = "^4.7.0.68"
+tqdm = "^4.64.1"
 
 
 [tool.poetry.group.dev.dependencies]
-tqdm = "^4.64.1"
 matplotlib = "^3.6.3"
 jupyter = "^1.0.0"
 black = "^22.12.0"
