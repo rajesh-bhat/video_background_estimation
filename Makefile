@@ -3,6 +3,7 @@
 PROJECT_SOURCE=video_background_estimation
 
 install: ## Install the package locally
+	@poetry lock --no-update
 	@poetry install
 	@poetry run pre-commit install
 
